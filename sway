@@ -25,7 +25,7 @@ set $menu wofi --show drun
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/default.png fill
+output * bg /home/owen/Pictures/wallpapers/raddmHE.jpeg fill
 #
 # Example configuration:
 #
@@ -137,7 +137,7 @@ output * bg /usr/share/backgrounds/default.png fill
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -216,4 +216,60 @@ input type:touchpad {
     dwt enabled
     tap enabled
     natural_scroll enabled
+}
+
+
+set $color0  #000000
+set $color1  #ff5555
+set $color2  #50fa7b
+set $color3  #f1fa8c
+set $color4  #bd93f9
+set $color4dark  #61347b
+set $color5  #ff79c6
+set $color6  #8be9fd
+set $color7  #bbbbbb
+set $color8  #555555
+set $color9  #ff5555
+set $color10 #50fa7b
+set $color11 #f1fa8c
+set $color12 #bd93f9
+set $color13 #ff79c6
+set $color14 #8be9fd
+set $color15 #ffffff
+
+# set $background-color $color0
+set $background-color #1e1f29
+# set $text-color $color6
+set $text-color #f8f8f2
+# set $selection-color $color1
+set $selection-color #44475a
+# set $accent-color $color12
+set $accent-color #ffffff
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $color5 $color12 $color0 $color12 $color12
+client.focused_inactive $color4 $color4 $color5 $color3 $color1
+client.unfocused        $color4 $color0 $color5 $color0 $color4dark
+client.urgent           $color8 $color8 $color0 $color0 $color4dark
+client.placeholder      $color0 $color0 $color5 $color0 $color4dark
+client.background       $color7
+
+
+# Window borders
+default_border pixel 4
+default_floating_border normal
+hide_edge_borders smart
+
+gaps inner 10
+smart_gaps on
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
+    gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+    # gsettings set $gnome-schema icon-theme 'Dracula'
+    # gsettings set $gnome-schema cursor-theme 'Dracula'
+    gsettings set $gnome-schema font-name 'Sans 10'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }

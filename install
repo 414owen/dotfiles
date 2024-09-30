@@ -1,0 +1,59 @@
+#!/usr/bin/env sh
+
+set -x
+dir="$(dirname "$(realpath "$0")")"
+
+DEBUG=0
+
+function prompt() {
+  read -p "$1 " -n 1 -r
+  echo    # (optional) move to a new line
+  [[ "$REPLY" =~ ^[Yy]$ ]]
+}
+
+function link() {
+  source="$1"
+  abssource="${dir}/${source}"
+  target="$2"
+  if [ "$DEBUG" = "1" ]; then
+    echo "Source ${source}"
+    echo "Target ${target}"
+  fi
+  mkdir -p "$(dirname "${target}")"
+  if [ -L "${target}" ]; then
+    olddest="$(readlink "${target}")"
+    if [ "${olddest}" == "${abssource}" ]; then
+      echo "✅ '${source}' already linked"
+      return
+    else
+      if prompt "Link for '$1' currently points to '${olddest}'. Overwrite? "; then
+        rm "${target}"
+      else
+        echo "⚠️ Skipped ${source}"
+        return
+      fi
+    fi
+  elif [ -f "${target}" ]; then
+    if prompt "Overwrite '${target}' with link to '${source}'? "; then
+      rm "${target}"
+    else
+      echo "⚠️ Skipped ${source}"
+      return
+    fi
+  fi
+  ln -sf "${abssource}" "${target}"
+  echo "✅ Linked '${source}'"
+}
+
+link git ~/.config/git/config
+link bash ~/.bashrc
+link readline ~/.inputrc
+link sway ~/.config/sway/config
+link tmux ~/.tmux.conf
+link wofi-dracula/style.css ~/.config/wofi/style.css
+
+if [ ! -d ~/.theme/dracula ]; then
+  pushd ~/.themes
+  git clone https://github.com/dracula/gtk dracula --depth=1
+  popd
+fi

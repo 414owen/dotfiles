@@ -1,0 +1,6 @@
+[user]
+	email = owen@owen.cafe
+	name = Owen Shepherd
+	signingkey = 2C9161B9AB61BD1502F9011F426D621DB5732F0A
+[commit]
+	gpgsign = true
