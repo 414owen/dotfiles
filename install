@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-set -x
 dir="$(dirname "$(realpath "$0")")"
 
 DEBUG=0
@@ -53,6 +52,7 @@ link tmux ~/.tmux.conf
 link wofi-dracula/style.css ~/.config/wofi/style.css
 
 if [ ! -d ~/.theme/dracula ]; then
+  mkdir -p ~/.themes
   pushd ~/.themes
   git clone https://github.com/dracula/gtk dracula --depth=1
   popd

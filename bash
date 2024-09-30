@@ -32,12 +32,22 @@ function mkgraph() {
     printf "%s" "git lg --color=always ${1} | gitlogprettify | less"
 }
 
+mkcd() {
+  mkdir -p $1
+  cd $1
+}
+
+teehist() {
+  print -rs $1
+  eval $1
+}
+
 alias cat="bat"
 alias c="clear"
 alias cf="cd \"\$(fd -t d | fuzzy)\""
 alias cs="clear;ls"
 alias debug="set -o nounset; set -o xtrace"
-alias e=editor
+alias e=hx
 alias ef="file=\"\$(fuzzy)\"; [ ! -z \"$file\" ] && echo \"$file\" && teehist \"e '$file'\""
 alias ff="fuzzy"
 alias find=fd
