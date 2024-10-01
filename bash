@@ -42,6 +42,8 @@ teehist() {
   eval $1
 }
 
+export EDITOR=hx
+
 alias cat="bat"
 alias c="clear"
 alias cf="cd \"\$(fd -t d | fuzzy)\""

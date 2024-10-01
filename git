@@ -4,5 +4,36 @@
 	signingkey = 2C9161B9AB61BD1502F9011F426D621DB5732F0A
 [commit]
 	gpgsign = true
+	verbose = true
+	cleanup = scissors
 [push]
 	autoSetupRemote = true
+	followtags = true
+[merge]
+	conflictstyle = zdiff3
+	keepbackup = false
+[pull]
+	rebase = true
+[rebase]
+	autosquash = true
+	autostash = true
+	updateRefs = true
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
+	submodule = log
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
+[submodule]
+	recurse = true
+[status]
+	submoduleSummary = true
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+[branch]
+	sort = -committerdate
+[tag]
+	sort = taggerdate
