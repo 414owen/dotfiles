@@ -4,6 +4,10 @@ dir="$(dirname "$(realpath "$0")")"
 
 DEBUG=0
 
+if [ ! -f wofi-dracula/style.css ]; then
+  git submodule update --init
+fi
+
 function prompt() {
   read -p "$1 " -n 1 -r
   echo    # (optional) move to a new line
@@ -50,8 +54,9 @@ link readline ~/.inputrc
 link sway ~/.config/sway/config
 link tmux ~/.tmux.conf
 link wofi-dracula/style.css ~/.config/wofi/style.css
+link starship.toml ~/.config/starship.toml
 
-if [ ! -d ~/.theme/dracula ]; then
+if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes
   pushd ~/.themes
   git clone https://github.com/dracula/gtk dracula --depth=1
