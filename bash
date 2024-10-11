@@ -38,7 +38,7 @@ mkcd() {
 }
 
 teehist() {
-  print -rs $1
+  history -s $1
   eval $1
 }
 
@@ -50,7 +50,7 @@ alias cf="cd \"\$(fd -t d | fuzzy)\""
 alias cs="clear;ls"
 alias debug="set -o nounset; set -o xtrace"
 alias e=hx
-alias ef="file=\"\$(fuzzy)\"; [ ! -z \"$file\" ] && echo \"$file\" && teehist \"e '$file'\""
+alias ef="file=\"\$(fuzzy)\"; [ ! -z \"\$file\" ] && echo \"\$file\" && teehist \"e '\$file'\""
 alias ff="fuzzy"
 alias find=fd
 alias f=find
@@ -125,3 +125,4 @@ alias tree="eza --tree"
 alias t="time"
 alias ytdl720="yt-dlp -f '(mkv,mp4)[height<=720]'"
 alias ytdl1080="yt-dlp -f '(mkv,mp4)[height<=1080]'"
+. "$HOME/.cargo/env"
