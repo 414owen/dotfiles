@@ -25,7 +25,10 @@ set $menu wofi --show drun
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /home/owen/Pictures/wallpapers/raddmHE.jpeg fill
+output * bg /home/owen/Pictures/space/pexels-felixmittermeier-2832084.jpg fill
+# output * bg /home/owen/Pictures/space/pexels-felixmittermeier-2832071.jpg fill
+# output * bg /home/owen/Pictures/space/pexels-pixabay-33045.jpg fill
+
 #
 # Example configuration:
 #

@@ -10,7 +10,7 @@ set bell-style none
 "\C-g":glob-expand-word
 
 # Cycle through completions with tab
-"\t":menu-complete
+Tab: menu-complete
 
 # Movement
 "\C-a":beginning-of-line

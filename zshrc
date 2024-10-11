@@ -1,21 +1,34 @@
 # .bashrc
 
-
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+if [ -f /etc/zshrc ]; then
+    . /etc/zshrc
 fi
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
+add_to_path() {
+    # User specific environment
+    if ! [[ "$PATH" =~ "${1}" ]]; then
+        PATH="${1}:${PATH}"
+    fi
+}
+
+add_to_path "$HOME/bin"
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.cargo/bin"
+
 export PATH
 
-eval "$(starship init bash)"
-eval "$(fzf --bash)"
-eval "$(zoxide init bash)"
-eval "$(direnv hook bash)"
+eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
+
+function swapfiles() {
+    tmp="$(mktemp)"
+    mv "$1" "$tmp"
+    mv "$2" "$1"
+    mv "$tmp" "$2"
+}
 
 function head() {
     printf "%s" "${1:0:1}"
@@ -42,6 +55,14 @@ teehist() {
   eval $1
 }
 
+function ef() {
+    file="$(fuzzy)"
+    if [ ! -z "$file" ]; then
+        echo "$file"
+        teehist "e '$file'"
+    fi
+}
+
 export EDITOR=hx
 
 alias cat="bat"
@@ -50,9 +71,7 @@ alias cf="cd \"\$(fd -t d | fuzzy)\""
 alias cs="clear;ls"
 alias debug="set -o nounset; set -o xtrace"
 alias e=hx
-alias ef="file=\"\$(fuzzy)\"; [ ! -z \"\$file\" ] && echo \"\$file\" && teehist \"e '\$file'\""
 alias ff="fuzzy"
-alias find=fd
 alias f=find
 alias fuzzy=fzf
 alias gaaa="git add --all"

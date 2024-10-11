@@ -49,12 +49,13 @@ function link() {
 }
 
 link git ~/.config/git/config
-link bash ~/.bashrc
+link zshrc ~/.zshrc
 link readline ~/.inputrc
 link sway ~/.config/sway/config
 link tmux ~/.tmux.conf
 link wofi-dracula/style.css ~/.config/wofi/style.css
 link starship.toml ~/.config/starship.toml
+link helix.toml ~/.config/helix/config.toml
 
 if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes
@@ -62,3 +63,9 @@ if [ ! -d ~/.themes/dracula ]; then
   git clone https://github.com/dracula/gtk dracula --depth=1
   popd
 fi
+
+if ! grep $USER /etc/passwd | grep zsh; then
+  echo "Making ZSH the default shell"
+  chsh -s "$(which zsh)"
+fi
+
