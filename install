@@ -56,6 +56,8 @@ link tmux ~/.tmux.conf
 link wofi-dracula/style.css ~/.config/wofi/style.css
 link starship.toml ~/.config/starship.toml
 link helix.toml ~/.config/helix/config.toml
+link waybar/config.jsonc ~/.config/waybar/config.jsonc
+link waybar/style.css ~/.config/waybar/style.css
 
 if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes
@@ -64,7 +66,7 @@ if [ ! -d ~/.themes/dracula ]; then
   popd
 fi
 
-if ! grep $USER /etc/passwd | grep zsh; then
+if ! grep $USER /etc/passwd | grep zsh > /dev/null; then
   echo "Making ZSH the default shell"
   chsh -s "$(which zsh)"
 fi

@@ -249,13 +249,13 @@ set $selection-color #44475a
 # set $accent-color $color12
 set $accent-color #ffffff
 
-# Basic color configuration using the Base16 variables for windows and borders.
-# Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $color5 $color12 $color0 $color12 $color12
-client.focused_inactive $color4 $color4 $color5 $color3 $color1
-client.unfocused        $color4 $color0 $color5 $color0 $color4dark
-client.urgent           $color8 $color8 $color0 $color0 $color4dark
-client.placeholder      $color0 $color0 $color5 $color0 $color4dark
+# Basic color configuration using the Base16 variables for   windows and borders.
+# Property Name         Border  BG       Text    Indicator   Child Border
+client.focused          $color5 $color12 $color0 $color4     $color4
+client.focused_inactive $color4 $color4  $color5 $color4dark $color4dark
+client.unfocused        $color4 $color0  $color5 $color4dark $color4dark
+client.urgent           $color8 $color8  $color0 $color4dark $color4dark
+client.placeholder      $color0 $color0  $color5 $color4dark $color4dark
 client.background       $color7
 
 

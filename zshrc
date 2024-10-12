@@ -5,6 +5,81 @@ if [ -f /etc/zshrc ]; then
     . /etc/zshrc
 fi
 
+# Completion
+
+## menu-style
+zstyle ':completion:*' menu select
+autoload -Uz compinit && compinit
+zstyle ':completion:*' special-dirs true
+
+## case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+## Tab completion colors
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+## add new installed packages into completions
+zstyle ':completion:*' rehash true
+
+## Use better completion for the kill command
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;34'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+## use completion cache
+zstyle ':completion::complete:*' use-cache true
+
+bindkey "\e[3~" delete-char
+bindkey "^[[Z" reverse-menu-complete
+bindkey "^[[A" up-line-or-search
+bindkey "^[[B" down-line-or-search
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+bindkey " "  magic-space
+
+setopt PROMPT_PERCENT
+setopt PROMPT_SUBST
+
+# Tab completion
+autoload -Uz compinit && compinit
+setopt complete_in_word         # cd /ho/sco/tm<TAB> expands to /home/scott/tmp
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&' # These "eat" the auto prior space after a tab complete
+
+# misc
+setopt autocd                   # cd to a folder just by typing it's name
+setopt interactive_comments     # allow # comments in shell; good for copy/paste
+unsetopt correct_all            # I don't care for 'suggestions' from ZSH
+export BLOCK_SIZE="'1"          # Add commas to file sizes
+
+# history config
+HISTSIZE=1000
+SAVEHIST=1000
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+
+# share history across multiple zsh sessions
+setopt SHARE_HISTORY
+
+# append to history
+setopt APPEND_HISTORY
+
+# expire duplicates first
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# do not store duplications
+setopt HIST_IGNORE_DUPS
+
+# ignore duplicates when searching
+setopt HIST_FIND_NO_DUPS
+
+# removes blank lines from history
+setopt HIST_REDUCE_BLANKS
+
+# Correction when you misstype
+#setopt CORRECT
+#setopt CORRECT_ALL
+
+# use emacs bindings
+set -o emacs
+
 add_to_path() {
     # User specific environment
     if ! [[ "$PATH" =~ "${1}" ]]; then
@@ -15,6 +90,7 @@ add_to_path() {
 add_to_path "$HOME/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 export PATH
 
@@ -144,4 +220,3 @@ alias tree="eza --tree"
 alias t="time"
 alias ytdl720="yt-dlp -f '(mkv,mp4)[height<=720]'"
 alias ytdl1080="yt-dlp -f '(mkv,mp4)[height<=1080]'"
-. "$HOME/.cargo/env"
