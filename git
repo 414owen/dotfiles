@@ -31,8 +31,6 @@
 	recurse = true
 [status]
 	submoduleSummary = true
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
 [branch]
 	sort = -committerdate
 [tag]

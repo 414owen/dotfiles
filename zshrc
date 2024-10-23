@@ -53,7 +53,7 @@ export BLOCK_SIZE="'1"          # Add commas to file sizes
 # history config
 HISTSIZE=1000
 SAVEHIST=1000
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
+export HISTFILE="${HOME}/.zsh_history"
 
 # share history across multiple zsh sessions
 setopt SHARE_HISTORY
@@ -140,6 +140,10 @@ function ef() {
 }
 
 export EDITOR=hx
+
+for i in $(seq 12); do
+    alias gr${i}="git rebase -i HEAD~${i}"
+done
 
 alias cat="bat"
 alias c="clear"
