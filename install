@@ -58,6 +58,7 @@ link starship.toml ~/.config/starship.toml
 link helix.toml ~/.config/helix/config.toml
 link waybar/config.jsonc ~/.config/waybar/config.jsonc
 link waybar/style.css ~/.config/waybar/style.css
+link alacritty.toml ~/.config/alacritty/alacritty.toml
 
 if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes
