@@ -35,3 +35,5 @@
 	sort = -committerdate
 [tag]
 	sort = taggerdate
+[core]
+	excludesFile = ~/.config/git/ignore

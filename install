@@ -55,10 +55,13 @@ link sway ~/.config/sway/config
 link tmux ~/.tmux.conf
 link wofi-dracula/style.css ~/.config/wofi/style.css
 link starship.toml ~/.config/starship.toml
-link helix.toml ~/.config/helix/config.toml
+link helix/helix.toml ~/.config/helix/config.toml
+link helix/languages.toml ~/.config/helix/languages.toml
 link waybar/config.jsonc ~/.config/waybar/config.jsonc
 link waybar/style.css ~/.config/waybar/style.css
 link alacritty.toml ~/.config/alacritty/alacritty.toml
+link gdb ~/.config/gdb/gdbinit
+link gitignore ~/.config/git/ignore
 
 if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes
