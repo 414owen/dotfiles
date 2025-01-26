@@ -63,6 +63,7 @@ link alacritty.toml ~/.config/alacritty/alacritty.toml
 link gdb ~/.config/gdb/gdbinit
 link gitignore ~/.config/git/ignore
 link cargo.toml ~/.cargo/config.toml
+link tmate.conf ~/.tmate.conf
 
 if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes
@@ -75,4 +76,3 @@ if ! grep $USER /etc/passwd | grep zsh > /dev/null; then
   echo "Making ZSH the default shell"
   chsh -s "$(which zsh)"
 fi
-
