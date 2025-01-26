@@ -1,2 +1,5 @@
 theme = "base16_default_dark"
 
+[keys.insert]
+j = { k = "normal_mode" }
+k = { j = "normal_mode" }

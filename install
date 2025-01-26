@@ -62,6 +62,7 @@ link waybar/style.css ~/.config/waybar/style.css
 link alacritty.toml ~/.config/alacritty/alacritty.toml
 link gdb ~/.config/gdb/gdbinit
 link gitignore ~/.config/git/ignore
+link cargo.toml ~/.cargo/config.toml
 
 if [ ! -d ~/.themes/dracula ]; then
   mkdir -p ~/.themes

@@ -1,4 +1,4 @@
-# .bashrc
+# .zshrc
 
 # Source global definitions
 if [ -f /etc/zshrc ]; then
