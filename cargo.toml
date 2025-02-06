@@ -4,3 +4,9 @@ rustflags = ["-C", "link-arg=--ld-path=wild"]
 
 [net]
 git-fetch-with-cli = true
+
+[unstable]
+codegen-backend = true
+
+[profile.dev]
+codegen-backend = "cranelift"
