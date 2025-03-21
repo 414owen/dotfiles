@@ -65,11 +65,24 @@ link gitignore ~/.config/git/ignore
 link cargo.toml ~/.cargo/config.toml
 link tmate.conf ~/.tmate.conf
 
-if [ ! -d ~/.themes/dracula ]; then
-  mkdir -p ~/.themes
-  pushd ~/.themes
-  git clone https://github.com/dracula/gtk dracula --depth=1
-  popd
+if [ ! -d /usr/share/themes/Dracula ]; then
+  echo "Downloading Dracula gtk theme"
+  wget https://github.com/dracula/gtk/archive/master.zip
+  echo "Unzipping..."
+  unzip master.zip &> /dev/null
+  rm master.zip
+  echo "Moving to /usr/share/themes"
+  sudo mv gtk-master /usr/share/themes/Dracula
+fi
+
+if [ ! -d /usr/share/icons/Dracula ]; then
+  echo "Downloading Dracula icon theme"
+  wget https://github.com/dracula/gtk/files/5214870/Dracula.zip
+  echo "Unzipping..."
+  unzip Dracula.zip &> /dev/null
+  rm Dracula.zip
+  echo "Moving to /usr/share/icons"
+  sudo mv Dracula /usr/share/icons
 fi
 
 if ! grep $USER /etc/passwd | grep zsh > /dev/null; then

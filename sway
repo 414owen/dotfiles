@@ -269,8 +269,9 @@ smart_gaps on
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-    gsettings set org.gnome.desktop.wm.preferences theme "Adwaita-dark"
+    gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
+    gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+    gsettings set org.gnome.desktop.interface icon-theme "Dracula"
     gsettings set $gnome-schema font-name 'Sans 10'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
