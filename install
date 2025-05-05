@@ -64,6 +64,7 @@ link gdb ~/.config/gdb/gdbinit
 link gitignore ~/.config/git/ignore
 link cargo.toml ~/.cargo/config.toml
 link tmate.conf ~/.tmate.conf
+link foot.ini ~/.config/foot/foot.ini
 
 if [ ! -d /usr/share/themes/Dracula ]; then
   echo "Downloading Dracula gtk theme"
