@@ -11,5 +11,5 @@ git-fetch-with-cli = true
 # [profile.dev]
 # codegen-backend = "cranelift"
 
-[build]
-rustflags = ["-Z", "threads=20"]
+# [build]
+# rustflags = ["-Z", "threads=20"]

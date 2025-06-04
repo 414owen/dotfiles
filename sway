@@ -25,7 +25,7 @@ set $menu wofi --show drun
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /home/owen/Pictures/space/pexels-felixmittermeier-2832084.jpg fill
+# output * bg /home/owen/Pictures/space/pexels-felixmittermeier-2832084.jpg fill
 # output * bg /home/owen/Pictures/space/pexels-felixmittermeier-2832071.jpg fill
 # output * bg /home/owen/Pictures/space/pexels-pixabay-33045.jpg fill
 
@@ -274,4 +274,8 @@ exec_always {
     gsettings set org.gnome.desktop.interface icon-theme "Dracula"
     gsettings set $gnome-schema font-name 'Sans 10'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+}
+
+bar {
+     swaybar_command waybar
 }

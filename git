@@ -37,3 +37,5 @@
 	sort = taggerdate
 [core]
 	excludesFile = ~/.config/git/ignore
+[http]
+	postBuffer = 524288000
