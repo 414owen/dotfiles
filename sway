@@ -56,6 +56,15 @@ set $menu wofi --show drun
     # Start a terminal
     bindsym $mod+Return exec $term
 
+    # Brightness
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5%
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+
+    # Volume
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
     # Kill focused window
     bindsym $mod+q kill
 
