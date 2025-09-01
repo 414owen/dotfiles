@@ -45,6 +45,7 @@ setopt complete_in_word         # cd /ho/sco/tm<TAB> expands to /home/scott/tmp
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&' # These "eat" the auto prior space after a tab complete
 
 # misc
+setopt BSD_ECHO
 setopt autocd                   # cd to a folder just by typing it's name
 setopt interactive_comments     # allow # comments in shell; good for copy/paste
 unsetopt correct_all            # I don't care for 'suggestions' from ZSH
@@ -224,3 +225,13 @@ alias tree="eza --tree"
 alias t="time"
 alias ytdl720="yt-dlp -f '(mkv,mp4)[height<=720]'"
 alias ytdl1080="yt-dlp -f '(mkv,mp4)[height<=1080]'"
+
+# pnpm
+export PNPM_HOME="/home/owen/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+source <(jj util completion zsh)
