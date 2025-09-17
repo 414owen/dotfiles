@@ -286,5 +286,5 @@ exec_always {
 }
 
 bar {
-     swaybar_command waybar
+     # swaybar_command waybar
 }
