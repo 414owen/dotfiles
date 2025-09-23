@@ -226,6 +226,8 @@ alias t="time"
 alias ytdl720="yt-dlp -f '(mkv,mp4)[height<=720]'"
 alias ytdl1080="yt-dlp -f '(mkv,mp4)[height<=1080]'"
 
+export GPG_TTY=$(tty)
+
 # pnpm
 export PNPM_HOME="/home/owen/.local/share/pnpm"
 case ":$PATH:" in
