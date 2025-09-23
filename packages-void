@@ -1,6 +1,13 @@
+Waybar
+alsa-ucm-conf
+dbus
+dejavu-fonts-ttf
 elogind
 mesa-dri
-vulkan-loader
 mesa-vulkan-intel
-dejavu-fonts-ttf
 noto-fonts-ttf
+pipewire
+sof-firmware
+vulkan-loader
+xdg-desktop-portal
+font-awesome6

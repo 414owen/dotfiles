@@ -1,3 +1,4 @@
+brightnessctl
 curl
 sway
 foot
@@ -12,11 +13,12 @@ fzf
 git
 grimshot
 helix
-papyrus-icon-theme
 ripgrep
 starship
 stow
 tmux
+unzip
+wget
 wl-clipboard
 wofi
 yt-dlp

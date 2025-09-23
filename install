@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 dir="$(dirname "$(realpath "$0")")"
 
@@ -8,13 +8,13 @@ if [ ! -f wofi-dracula/style.css ]; then
   git submodule update --init
 fi
 
-function prompt() {
-  read -p "$1 " -n 1 -r
+prompt() {
+  read -p "$1 "
   echo    # (optional) move to a new line
   [[ "$REPLY" =~ ^[Yy]$ ]]
 }
 
-function link() {
+link() {
   source="$1"
   abssource="${dir}/${source}"
   target="$2"
