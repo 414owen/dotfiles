@@ -3,11 +3,15 @@ alsa-ucm-conf
 dbus
 dejavu-fonts-ttf
 elogind
+font-awesome6
+gcc
+iwd
+make
 mesa-dri
 mesa-vulkan-intel
 noto-fonts-ttf
+openresolv
 pipewire
 sof-firmware
 vulkan-loader
 xdg-desktop-portal
-font-awesome6

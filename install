@@ -48,6 +48,12 @@ link() {
   echo "✅ Linked '${source}'"
 }
 
+mkdir -p ~/.local/bin
+
+for i in scripts/*; do
+  chmod +x $i
+done
+
 link git ~/.config/git/config
 link zshrc ~/.zshrc
 link readline ~/.inputrc
@@ -65,6 +71,8 @@ link gitignore ~/.config/git/ignore
 link cargo.toml ~/.cargo/config.toml
 link tmate.conf ~/.tmate.conf
 link foot.ini ~/.config/foot/foot.ini
+link scripts/wait-and-start-waybar.sh ~/.local/bin/wait-and-start-waybar.sh
+link ironbar/config.toml ~/.config/ironbar/config.toml
 
 if [ ! -d /usr/share/themes/Dracula ]; then
   echo "Downloading Dracula gtk theme"

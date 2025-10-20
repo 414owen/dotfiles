@@ -1,4 +1,5 @@
 brightnessctl
+clang
 curl
 sway
 foot
@@ -12,10 +13,13 @@ firefox
 fzf
 git
 grimshot
+moreutils
+mold
 helix
 ripgrep
 starship
 stow
+sd
 tmux
 unzip
 wget
