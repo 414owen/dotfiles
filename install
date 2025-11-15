@@ -72,6 +72,7 @@ link cargo.toml ~/.cargo/config.toml
 link tmate.conf ~/.tmate.conf
 link foot.ini ~/.config/foot/foot.ini
 link scripts/wait-and-start-waybar.sh ~/.local/bin/wait-and-start-waybar.sh
+link scripts/change-brightness.pl ~/.local/bin/change-brightness.pl
 link ironbar/config.toml ~/.config/ironbar/config.toml
 
 if [ ! -d /usr/share/themes/Dracula ]; then

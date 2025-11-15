@@ -51,8 +51,8 @@ set $menu wofi --show drun
     bindsym $mod+Return exec $term
 
     # Brightness
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5%
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+    bindsym --locked XF86MonBrightnessUp exec change-brightness.pl up
+    bindsym --locked XF86MonBrightnessDown exec change-brightness.pl down
 
     # Volume
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -280,7 +280,7 @@ exec_always {
 }
 
 exec {
-    pipewire
+    # pipewire
 }
 
 bar {
