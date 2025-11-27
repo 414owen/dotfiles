@@ -91,6 +91,7 @@ add_to_path() {
 add_to_path "$HOME/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
+[ -d ~/.ghcup/bin ]&&  add_to_path "$HOME/.ghcup/bin"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 export PATH
