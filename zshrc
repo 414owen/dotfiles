@@ -108,10 +108,6 @@ function swapfiles() {
     mv "$tmp" "$2"
 }
 
-function head() {
-    printf "%s" "${1:0:1}"
-}
-
 function mk_git_log_sed() {
     str="$1"
     printf " -e 's/ %ss\\? ago)/%.1s)/' -e 's/ %ss\\?, /%.1s, /'" "$str" "$str" "$str" "$str"

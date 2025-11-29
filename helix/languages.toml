@@ -1,6 +1,19 @@
-[language-server.rust-analyzer]
-config = { cargo = { features = "all" } }
+[language-server.haskell-language-server.config]
+haskell.formattingProvider = "fourmolu"
 
 [[language]]
 name = "gas"
 indent = { tab-width = 8, unit = "\t" }
+
+[[language]]
+name = "haskell"
+scope = "source.haskell"
+auto-format = true
+injection-regex = "hs|haskell"
+file-types = ["hs", "hs-boot", "hsc"]
+roots = ["Setup.hs", "stack.yaml", "cabal.project", "hie.yaml"]
+shebangs = ["runhaskell", "stack"]
+comment-token = "--"
+block-comment-tokens = { start = "{-", end = "-}" }
+language-servers = [ "haskell-language-server" ]
+indent = { tab-width = 2, unit = "  " }

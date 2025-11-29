@@ -54,7 +54,7 @@
 #clock,
 #battery,
 #pulseaudio,
-#custom-lock,
+#idle_inhibitor,
 #custom-power {
   background-color: @surface0;
   padding: 0.5rem 1rem;
@@ -98,7 +98,7 @@
   border-radius: 1rem;
 }
 
-#custom-lock {
+#idle_inhibitor {
     border-radius: 1rem 0px 0px 1rem;
     color: @lavender;
 }
