@@ -279,11 +279,11 @@ exec_always {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
 
-# exec {
-#     pipewire
-# }
+exec {
+    pipewire
+}
 
 bar {
     # Wait for pipewire to be available, then launch waybar
-    # swaybar_command wait-and-start-waybar.sh
+    swaybar_command wait-and-start-waybar.sh
 }

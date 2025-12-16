@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-sudo xbps-install $(cat packages-void packages) || true
+sudo xbps-install -f $(cat packages-void packages) || true
 
 enable() {
   if [ ! -d /etc/runit/runsvdir/${i} ]; then
@@ -10,7 +10,3 @@ enable() {
 
 enable elogind
 enable dbus
-enable iwd
-
-# These lines make firefox start really slowly...
-sudo sd '^([a-z])' '# $1' /etc/resolv.conf

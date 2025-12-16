@@ -8,10 +8,11 @@ gcc
 iwd
 make
 mesa-dri
-mesa-vulkan-intel
+mesa-vulkan-radeon
 noto-fonts-ttf
 openresolv
 pipewire
+Thunar
 sof-firmware
 vulkan-loader
 xdg-desktop-portal

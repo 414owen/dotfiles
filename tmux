@@ -1,4 +1,4 @@
-set -g default-terminal "tmux-256color"
+set -g default-terminal "screen-256color"
 
 # Remove '0' pane
 set  -g base-index      1

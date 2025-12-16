@@ -26,8 +26,8 @@
 @define-color crust #11111b;
 
 * {
-    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
-    font-size: 13px;
+  font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+  font-size: 13px;
 }
 
 #waybar {
@@ -36,16 +36,17 @@
 }
 
 #workspaces {
-    padding: 0 0;
-    font-size: 13px;
+  color: #eee;
+  padding: 0 0;
+  font-size: 13px;
 }
 
 #workspaces button {
-    margin: 1px;
+  margin: 1px;
 }
 
 #workspaces button.focused {
-    border-top: 1px solid #bfbfbf;
+  border-top: 1px solid #bfbfbf;
 }
 
 #custom-music,
@@ -84,7 +85,7 @@
 }
 
 #backlight, #battery {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 #pulseaudio {
@@ -99,14 +100,14 @@
 }
 
 #idle_inhibitor {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @lavender;
+  border-radius: 1rem 0px 0px 1rem;
+  color: @lavender;
 }
 
 #custom-power {
-    /* margin-right: 1rem; */
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
+  /* margin-right: 1rem; */
+  border-radius: 0px 1rem 1rem 0px;
+  color: @red;
 }
 
 #tray {
