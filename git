@@ -46,5 +46,6 @@
     side-by-side = true
 [http]
 	postBuffer = 524288000
+	sslbackend = openssl
 [alias]
 	recommit = !git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG
