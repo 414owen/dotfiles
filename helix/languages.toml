@@ -19,3 +19,14 @@ indent = { tab-width = 2, unit = "  " }
 args = ["--lsp"]
 command = "haskell-language-server-wrapper"
 config = { haskell.formattingProvider = "fourmolu" }
+
+[[language]]
+name = "lean"
+scope = "source.lean"
+file-types = ["lean"]
+roots = ["lakefile.lean", "lakefile.toml", "lean-toolchain"]
+language-servers = ["lean-lake"]
+
+[language-server.lean-lake]
+command = "lake"
+args = ["env", "lean", "--server"]
