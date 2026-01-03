@@ -35,11 +35,6 @@
 	sort = -committerdate
 [tag]
 	sort = taggerdate
-[core]
-	excludesFile = ~/.config/git/ignore
-    pager = delta
-[interactive]
-    diffFilter = delta --color-only
 [delta]
     navigate = true  # use n and N to move between diff sections
     dark = true      # or light = true, or omit for auto-detection
@@ -49,3 +44,5 @@
 	sslbackend = openssl
 [alias]
 	recommit = !git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG
+[url "https://github.com/"]
+	insteadOf = git@github.com:

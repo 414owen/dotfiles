@@ -279,16 +279,6 @@ exec_always {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
 
-exec_always {
-    setenv XDG_CURRENT_DESKTOP sway
-    setenv XDG_SESSION_DESKTOP sway
-    exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
-}
-
-exec {
-    pipewire
-}
-
 bar {
     # Wait for pipewire to be available, then launch waybar
     swaybar_command wait-and-start-waybar.sh

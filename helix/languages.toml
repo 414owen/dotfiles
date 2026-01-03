@@ -15,6 +15,15 @@ block-comment-tokens = { start = "{-", end = "-}" }
 language-servers = [ "haskell-language-server" ]
 indent = { tab-width = 2, unit = "  " }
 
+[[language]]
+name = "lean"
+scope = "source.lean"
+roots = ["lakefile.toml", "lakefile.lean", "lean-toolchain"]
+auto-format = true
+
+[language-server.lean]
+args = ["--server"]
+
 [language-server.haskell-language-server]
 args = ["--lsp"]
 command = "haskell-language-server-wrapper"

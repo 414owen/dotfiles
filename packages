@@ -4,7 +4,6 @@ curl
 sway
 foot
 bat
-delta
 btop
 direnv
 evince
@@ -12,7 +11,7 @@ eza
 firefox
 fzf
 git
-grimshot
+sway-contrib
 moreutils
 mold
 helix

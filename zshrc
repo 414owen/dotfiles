@@ -223,6 +223,12 @@ alias t="time"
 alias ytdl720="yt-dlp -f '(mkv,mp4)[height<=720]'"
 alias ytdl1080="yt-dlp -f '(mkv,mp4)[height<=1080]'"
 
+if ! command -v hx &> /dev/null; then
+  if command -v helix &> /dev/null; then
+    alias hx="helix"
+  fi
+fi
+
 export GPG_TTY=$(tty)
 
 # pnpm
@@ -237,4 +243,8 @@ if command -v jj &> /dev/null; then
     source <(jj util completion zsh)
 fi
 
+
 [ -f "/home/owen/.ghcup/env" ] && . "/home/owen/.ghcup/env" # ghcup-env
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
