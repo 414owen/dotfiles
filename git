@@ -45,4 +45,6 @@
 [alias]
 	recommit = !git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG
 [url "https://github.com/"]
+	insteadOf = ssh://git@github.com/
+[url "https://github.com/"]
 	insteadOf = git@github.com:
