@@ -39,3 +39,6 @@ language-servers = ["lean-lake"]
 [language-server.lean-lake]
 command = "lake"
 args = ["env", "lean", "--server"]
+
+[language-server.rust-analyzer.config]
+cargo.features = "all"
