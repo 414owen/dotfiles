@@ -138,7 +138,7 @@ function ef() {
     fi
 }
 
-export EDITOR=hx
+export EDITOR=helix
 
 for i in $(seq 12); do
     alias gr${i}="git rebase -i HEAD~${i}"
