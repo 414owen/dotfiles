@@ -246,10 +246,10 @@ client.background       $color7
 # Window borders
 default_border pixel 4
 default_floating_border normal
-hide_edge_borders smart
+hide_edge_borders both
 
-gaps inner 8
-smart_gaps on
+gaps inner 0
+smart_gaps off
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
