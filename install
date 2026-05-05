@@ -74,6 +74,7 @@ link foot.ini ~/.config/foot/foot.ini
 link scripts/wait-and-start-waybar.sh ~/.local/bin/wait-and-start-waybar.sh
 link scripts/change-brightness.pl ~/.local/bin/change-brightness.pl
 link ironbar/config.toml ~/.config/ironbar/config.toml
+link mako ~/.config/mako/config
 
 if [ -d /usr/share/themes ]; then
   if [ ! -d /usr/share/themes/Dracula ]; then
