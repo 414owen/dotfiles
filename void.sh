@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-sudo xbps-install -f $(cat packages-void packages) || true
+sudo xbps-install -f $(grep -h -v -e '^sway-contrib$' -e '^waybar$' packages packages-void) || true
 
 enable() {
-  if [ ! -d /etc/runit/runsvdir/${i} ]; then
-    sudo ln -sf /etc/runit/runsvdir/${i} /var/services
+  if [ ! -e /var/service/$1 ]; then
+    sudo ln -s /etc/sv/$1 /var/service/$1
   fi
 }
 

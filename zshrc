@@ -138,8 +138,6 @@ function ef() {
     fi
 }
 
-export EDITOR=helix
-
 for i in $(seq 12); do
     alias gr${i}="git rebase -i HEAD~${i}"
 done
@@ -224,9 +222,12 @@ alias t="time"
 alias ytdl720="yt-dlp -f '(mkv,mp4)[height<=720]'"
 alias ytdl1080="yt-dlp -f '(mkv,mp4)[height<=1080]'"
 
+export EDITOR=hx
+
 if ! command -v hx &> /dev/null; then
   if command -v helix &> /dev/null; then
     alias hx="helix"
+    export EDITOR=helix
   fi
 fi
 
