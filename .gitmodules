@@ -1,3 +1,6 @@
 [submodule "wofi-dracula"]
 	path = wofi-dracula
 	url = https://github.com/dracula/wofi.git
+[submodule "mechakotik-dots"]
+	path = mechakotik-dots
+	url = https://github.com/mechakotik/dots.git

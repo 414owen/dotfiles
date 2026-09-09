@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo dnf copr enable atim/starship
-sudo dnf install $(command cat packages)
+sudo dnf install $(command cat packages) google-noto-color-emoji-fonts
 cargo install --locked --bin jj jj-cli
 
 echo "Installing rpmfusion"

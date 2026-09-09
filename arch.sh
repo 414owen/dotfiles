@@ -10,4 +10,4 @@ if ! command -v paru &> /dev/null; then
   makepkg -si
   cd ..
 fi
-paru -S --needed $(command cat packages) pipewire-pulse otf-font-awesome
+paru -S --needed $(command cat packages) pipewire-pulse otf-font-awesome noto-fonts-emoji

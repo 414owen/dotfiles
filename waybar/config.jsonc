@@ -7,17 +7,17 @@
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "backlight", "battery", "clock", "tray", "idle_inhibitor", "custom/lock", "custom/power"],
-    "margin-top": 8,
-    "margin-left": 12,
-    "margin-right": 12,
-    "wlr/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
-         "format": " {icon} ",
-         "format-icons": {
-             "default": "",
-         },
-     },
+    "height": 24,
+    "spacing": 5,
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+            "focused": "\uf444",
+            "default": "\uf4c3"
+        }
+    },
+
     "tray": {
         "icon-size": 21,
         "spacing": 10

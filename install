@@ -4,8 +4,9 @@ dir="$(dirname "$(realpath "$0")")"
 
 DEBUG=0
 
-if [ ! -f wofi-dracula/style.css ]; then
-  git submodule update --init
+if [ ! -f mechakotik-dots/.config/waybar/style.css ] || [ ! -f wofi-dracula/style.css ]; then
+  echo "Initializing theme submodules..."
+  git submodule update --init --recursive
 fi
 
 prompt() {
@@ -59,6 +60,7 @@ link zshrc ~/.zshrc
 link readline ~/.inputrc
 link sway ~/.config/sway/config
 link tmux ~/.tmux.conf
+link wofi/config ~/.config/wofi/config
 link wofi-dracula/style.css ~/.config/wofi/style.css
 link starship.toml ~/.config/starship.toml
 link helix/helix.toml ~/.config/helix/config.toml
