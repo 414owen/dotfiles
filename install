@@ -96,6 +96,16 @@ if [ -d /usr/share/themes ]; then
     echo "Moving to /usr/share/icons"
     sudo mv Dracula /usr/share/icons
   fi
+
+  if [ ! -d ~/.local/share/icons/McMojave-cursors ]; then
+    echo "Downloading McMojave cursor theme"
+    mkdir -p ~/.local/share/icons
+    wget https://github.com/vinceliuice/McMojave-cursors/archive/refs/heads/master.tar.gz
+    echo "Extracting..."
+    tar -xzf master.tar.gz
+    cp -r McMojave-cursors-master/dist ~/.local/share/icons/McMojave-cursors
+    rm -rf master.tar.gz McMojave-cursors-master
+  fi
 fi
 
 if ! grep $USER /etc/passwd | grep zsh > /dev/null; then

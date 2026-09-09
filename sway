@@ -210,6 +210,8 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+seat * xcursor_theme McMojave-cursors 32
+
 
 set $color0  #000000
 set $color1  #ff5555
@@ -262,12 +264,12 @@ exec_always {
     gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
     gsettings set org.gnome.desktop.interface icon-theme "Dracula"
     gsettings set $gnome-schema font-name 'Sans 10'
+    gsettings set org.gnome.desktop.interface cursor-theme 'McMojave-cursors'
+    gsettings set org.gnome.desktop.interface cursor-size 32
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
 
-exec_always --no-startup-id dbus-launch --exit-with-session pipewire
-exec_always --no-startup-id wireplumber
-exec_always --no-startup-id pipewire-pulse
+exec pipewire
 
 bar {
     # Wait for pipewire to be available, then launch waybar
