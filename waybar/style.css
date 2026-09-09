@@ -10,23 +10,53 @@
 
 #workspaces button {
     font-size: 13px; /* small dots */
+    /* Pin non-hover geometry too, so entering :hover can't add/reflow a
+     * border and nothing animates (GTK Default-theme transitions). */
+    border-width: 0;
+    border-style: none;
+    box-shadow: none;
+    transition: none;
 }
 
-/* The mechakotik base CSS never overrides button:hover, so the GTK theme
- * (Dracula: selected_bg_color #ff79c6) paints a purple square behind the
- * workspace icon on hover. Neutralise that leftover behaviour. */
-#workspaces button:hover {
-    background: transparent;
-    border: none;
+/* The GTK theme (Dracula) styles .button:hover with a purple background
+ * (@selected_bg_color #ff79c6), white-tinted borders and a white glyph
+ * colour. None of that belongs to this aesthetic, so neutralise every
+ * hover state explicitly. (Longhand properties only: GTK3 CSS does not
+ * reliably support shorthands like `border: none`.) */
+#workspaces button:hover,
+#workspaces button:active,
+#workspaces button.focused:hover,
+#workspaces button.empty:hover,
+#workspaces button.visible:hover {
+    color: inherit;
+    background-color: transparent;
+    background-image: none;
+    border-width: 0;
+    border-style: none;
+    border-color: transparent;
     box-shadow: none;
+    transition: none;
 }
 
 /* Same for the flat-black buttons on the right, which the GTK theme
  * would otherwise also tint on hover. */
-#waybar button:hover {
-    background: transparent;
-    border: none;
+#waybar button {
+    border-width: 0;
+    border-style: none;
     box-shadow: none;
+    transition: none;
+}
+
+#waybar button:hover,
+#waybar button:active {
+    color: inherit;
+    background-color: transparent;
+    background-image: none;
+    border-width: 0;
+    border-style: none;
+    border-color: transparent;
+    box-shadow: none;
+    transition: none;
 }
 
 /* Right-side modules not covered by the upstream padding rule */
