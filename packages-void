@@ -9,6 +9,7 @@ iwd
 make
 mesa-dri
 mesa-vulkan-radeon
+nerd-fonts-symbols-ttf
 noto-fonts-ttf
 openresolv
 pipewire
