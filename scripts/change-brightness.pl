@@ -3,46 +3,46 @@ use strict;
 use warnings;
 
 # Check argument
-my $dir = shift @ARGV or die "Usage: $0 <up|down>\n";
-die "Argument must be 'up' or 'down'.\n" unless $dir =~ /^(up|down)$/;
+my $dir = shift @ARGV // '';
+die "Usage: $0 <up|down>\n" unless $dir =~ /^(up|down)$/;
 
-# Get current brightness (raw) and max
-my $current = `brightnessctl g`;
-chomp($current);
-my $max = `brightnessctl m`;
-chomp($max);
+# Current and maximum raw brightness.
+my $current = `brightnessctl get`;
+chomp $current;
+my $max = `brightnessctl max`;
+chomp $max;
+die "Could not read brightness from brightnessctl\n"
+    unless $current =~ /^\d+$/ && $max =~ /^\d+$/ && $max > 0;
 
-# Convert to integer percent
-my $percent = int($current * 100 / $max);
+# 5% steps normally, 1% steps when dim so the low end stays adjustable.
+my $coarse = int($max * 5 / 100) || 1;
+my $fine   = int($max * 1 / 100) || 1;
+my $low    = int($max * 10 / 100);    # switch to fine steps below 10%
+my $min    = $coarse;                 # lowest backlight we bother with
 
-# Determine amount to change
-my ($abs, $pct);
-
-if ($percent < 7) {
-    $abs = 1;      # absolute amount
-    $pct = undef;
-} else {
-    $pct = 5;      # percent change
-    $abs = undef;
-}
-
-# Construct brightnessctl command
-my $cmd;
-
+# This panel uses a non-linear scale, so actual_brightness never reaches 0:
+# raw 0 still leaves it lit. The only way to really turn the screen off is
+# DPMS via sway, so hitting the bottom powers the outputs down instead.
 if ($dir eq 'up') {
-    if (defined $abs) {
-        $cmd = "brightnessctl set +$abs";
+    # Bring the displays back first (a no-op when they are already on).
+    system('swaymsg', 'output', '*', 'power', 'on');
+
+    my $target = $current < $low ? $current + $fine : $current + $coarse;
+    $target = $min if $target < $min;
+    $target = $max if $target > $max;
+
+    system('brightnessctl', '--quiet', 'set', $target) == 0
+        or die "Failed to set brightness to $target\n";
+} else {
+    if ($current <= $min) {
+        # At the bottom: turn the output(s) off.
+        system('swaymsg', 'output', '*', 'power', 'off');
     } else {
-        $cmd = "brightnessctl set +$pct%";
-    }
-} else {  # down
-    if (defined $abs) {
-        $cmd = "brightnessctl set $abs-";
-    } else {
-        $cmd = "brightnessctl set $pct%-";
+        my $step   = $current < $low ? $fine : $coarse;
+        my $target = $current - $step;
+        $target = $min if $target < $min;
+
+        system('brightnessctl', '--quiet', 'set', $target) == 0
+            or die "Failed to set brightness to $target\n";
     }
 }
-
-# Execute
-system($cmd) == 0 or die "Failed to run $cmd\n";
-
