@@ -114,3 +114,6 @@ if ! grep $USER /etc/passwd | grep zsh > /dev/null; then
   echo "Making ZSH the default shell"
   chsh -s "$(which zsh)"
 fi
+
+mkdir -p ~/.local/share/npm
+npm config set prefix ~/.local/share/npm

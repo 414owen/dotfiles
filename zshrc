@@ -92,6 +92,7 @@ add_to_path "$HOME/bin"
 add_to_path "$HOME/go/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
+add_to_path "$HOME/.local/share/npm/bin"
 [ -d ~/.ghcup/bin ]&&  add_to_path "$HOME/.ghcup/bin"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
