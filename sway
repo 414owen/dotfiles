@@ -269,7 +269,10 @@ exec_always {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
 
-exec pipewire
+# On systemd distros (Arch) pipewire/wireplumber/pipewire-pulse are user
+# units, and a manual instance would break their sockets. Elsewhere
+# (e.g. Void/runit) start it from the session.
+exec sh -c 'command -v systemctl >/dev/null 2>&1 || exec pipewire'
 
 bar {
     # Wait for pipewire to be available, then launch waybar
