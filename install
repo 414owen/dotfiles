@@ -108,6 +108,17 @@ if [ -d /usr/share/themes ]; then
     cp -r McMojave-cursors-master/dist ~/.local/share/icons/McMojave-cursors
     rm -rf master.tar.gz McMojave-cursors-master
   fi
+
+  # AUR-only on Arch, not packaged on Fedora/Void; install from source
+  if [ ! -d ~/.local/share/icons/Qogir ]; then
+    echo "Downloading Qogir icon theme"
+    mkdir -p ~/.local/share/icons
+    wget https://github.com/vinceliuice/Qogir-icon-theme/archive/refs/heads/master.tar.gz
+    echo "Extracting..."
+    tar -xzf master.tar.gz
+    (cd Qogir-icon-theme-master && ./install.sh -t default -c standard)
+    rm -rf master.tar.gz Qogir-icon-theme-master
+  fi
 fi
 
 if ! grep $USER /etc/passwd | grep zsh > /dev/null; then

@@ -262,7 +262,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
     gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
-    gsettings set org.gnome.desktop.interface icon-theme "Dracula"
+    gsettings set org.gnome.desktop.interface icon-theme "Qogir"
     gsettings set $gnome-schema font-name 'Sans 10'
     gsettings set org.gnome.desktop.interface cursor-theme 'McMojave-cursors'
     gsettings set org.gnome.desktop.interface cursor-size 32

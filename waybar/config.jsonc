@@ -19,6 +19,14 @@
         }
     },
 
+    "sway/window": {
+        // Long titles otherwise swallow the whole center of the bar.
+        // Waybar truncates to this many characters; the full title still
+        // shows in the hover tooltip ("tooltip": false to disable).
+        // Tune to taste - this is character count, not pixels.
+        "max-length": 50
+    },
+
     "tray": {
         "icon-size": 21,
         "spacing": 10
