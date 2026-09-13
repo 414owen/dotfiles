@@ -10,3 +10,4 @@ enable() {
 
 enable elogind
 enable dbus
+enable polkitd

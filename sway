@@ -197,6 +197,10 @@ bindsym $mod+r mode "resize"
 
 set $XDG_CURRENT_DESKTOP sway
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# PolicyKit authentication agent (binary path differs across distros)
+exec sh -c 'for a in /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 /usr/libexec/polkit-gnome-authentication-agent-1; do [ -x "$a" ] && exec "$a"; done'
+
 include /etc/sway/config.d/*
 
 input "type:keyboard" {
