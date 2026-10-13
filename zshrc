@@ -200,6 +200,17 @@ alias gst="git stash"
 alias gstl="git stash list"
 alias gstp="git stash pop"
 alias gsts="git stash save"
+alias jb="jj bookmark list"
+alias jbd="jj bookmark delete"
+alias jc="jj commit"
+alias jcl="jj git clone"
+alias jcm="jj commit --message"
+alias jd="jj diff"
+alias jf="jj git fetch"
+alias jl="jj log"
+alias jp="jj git push"
+alias jr="jj rebase"
+alias js="jj status"
 alias h="history"
 alias json="jq -Rr 'try fromjson // .'"
 alias k="kill"
@@ -239,6 +250,10 @@ export PNPM_HOME="/home/owen/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
 
