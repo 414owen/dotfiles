@@ -1,2 +1,6 @@
 [net]
 git-fetch-with-cli = true
+
+[target.'cfg(target_os = "linux")']
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
