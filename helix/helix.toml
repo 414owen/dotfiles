@@ -4,8 +4,5 @@ theme = "base16_terminal"
 j = { k = "normal_mode" }
 k = { j = "normal_mode" }
 
-[keys.normal.space.t]
-t = [
-  ":sh RUSTFLAGS=-Awarnings cargo test -q -- --nocapture %sh{echo %{buffer_name} | sed -E 's|^src/||; s,/?(mod|main)\\.rs\\s*$,,; s|\\.rs$||; s|/|::|g' }",
-]
-
+[keys.normal.space]
+B = ":echo %sh{git show --no-patch --format='%%h (%%an: %%ar): %%s' $(git blame -p %{buffer_name} -L%{cursor_line},+1 | head -1 | cut -d' ' -f1)}"
