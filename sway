@@ -283,3 +283,7 @@ bar {
     swaybar_command wait-and-start-waybar.sh
 }
 
+# Import variables into the systemd environment and start gnome-keyring
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec gnome-keyring-daemon --start --components=secrets,ssh,pkcs11
+
