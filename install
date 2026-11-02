@@ -76,6 +76,7 @@ for i in scripts/*; do
 done
 
 link git ~/.config/git/config
+link gpg-agent.conf ~/.gnupg/gpg-agent.conf
 link zshrc ~/.zshrc
 link readline ~/.inputrc
 link sway ~/.config/sway/config
@@ -97,6 +98,7 @@ link scripts/wait-and-start-waybar.sh ~/.local/bin/wait-and-start-waybar.sh
 link scripts/change-brightness.pl ~/.local/bin/change-brightness.pl
 link ironbar/config.toml ~/.config/ironbar/config.toml
 link mako ~/.config/mako/config
+link gtkrc-2.0 ~/.gtkrc-2.0
 
 if [ -d /usr/share/themes ]; then
   if [ ! -d /usr/share/themes/Dracula ]; then

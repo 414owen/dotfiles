@@ -42,3 +42,7 @@ args = ["env", "lean", "--server"]
 
 [language-server.rust-analyzer.config]
 cargo.features = "all"
+
+[[grammar]]
+name = "haskell"
+source = { git = "https://github.com/tree-sitter/tree-sitter-haskell", rev = "0736a5cda887395b1e7c967b41623a348c54ee2a" }
